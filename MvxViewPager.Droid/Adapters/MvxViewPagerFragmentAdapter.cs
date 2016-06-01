@@ -2,24 +2,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Android.App;
 using Android.Content;
 using Android.Support.V4.App;
 using Android.Support.V4.View;
-using Cirrious.MvvmCross.Droid.Fragging.Fragments;
-using Cirrious.MvvmCross.ViewModels;
+using Android.Support.V7.App;
+using MvvmCross.Core.ViewModels;
+using MvvmCross.Droid.Support.V4;
 using Fragment = Android.Support.V4.App.Fragment;
 using FragmentManager = Android.Support.V4.App.FragmentManager;
-using FragmentTransaction = Android.App.FragmentTransaction;
 
 namespace MvxViewPager.Droid.Adapters
 {
-    public class MvxViewPagerFragmentAdapter
-    : FragmentPagerAdapter, ViewPager.IOnPageChangeListener, ActionBar.ITabListener
+    public class MvxViewPagerFragmentAdapter : FragmentPagerAdapter, ViewPager.IOnPageChangeListener, ActionBar.ITabListener
     {
         private readonly ActionBar _actionBar;
         private readonly ViewPager _viewPager;

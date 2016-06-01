@@ -5,34 +5,25 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 using System.Collections.Generic;
+using Android.App;
+using Android.OS;
 using Android.Support.Design.Widget;
 using Android.Support.V4.View;
-using Android.Support.V7.App;
-using Cirrious.MvvmCross.Droid.Fragging;
+using MvvmCross.Droid.Support.V7.AppCompat;
 using MvxViewPager.Core.ViewModels;
 using MvxViewPager.Droid.Adapters;
 using MvxViewPager.Droid.Views.Fragments;
 
 namespace MvxViewPager.Droid.Views
 {
-    using Android.App;
-    using Android.OS;
-    
-
     /// <summary>
     /// Defines the HomeView type.
     /// </summary>
     [Activity(Label = "View for HomeView")]
-    public class HomeView : MvxFragmentActivity
+    public class HomeView : MvxFragmentCompatActivity<HomeViewModel>
     {
         private ViewPager _viewPager;
         private MvxViewPagerFragmentAdapter _adapter;
-
-        public new HomeViewModel ViewModel
-        {
-            get { return (HomeViewModel)base.ViewModel; }
-            set { base.ViewModel = value; }
-        }
 
         /// <summary>
         /// Called when [create].
@@ -43,7 +34,7 @@ namespace MvxViewPager.Droid.Views
             base.OnCreate(bundle);
             this.SetContentView(Resource.Layout.HomeView);
 
-            ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
+            SupportActionBar.NavigationMode = (int)ActionBarNavigationMode.Tabs;
 
             var fragments = new List<MvxViewPagerFragmentAdapter.FragmentInfo>
               {
@@ -68,7 +59,7 @@ namespace MvxViewPager.Droid.Views
               };
 
             _viewPager = FindViewById<ViewPager>(Resource.Id.viewPager);
-            _adapter = new MvxViewPagerFragmentAdapter(SupportFragmentManager, fragments, ActionBar, _viewPager);
+            _adapter = new MvxViewPagerFragmentAdapter(SupportFragmentManager, fragments, SupportActionBar, _viewPager);
             _viewPager.Adapter = _adapter;
             _viewPager.AddOnPageChangeListener(_adapter);
 

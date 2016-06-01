@@ -3,13 +3,14 @@
 //    Defines the BaseViewModel type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
+
+using System;
+using System.Linq.Expressions;
+using MvvmCross.Core.ViewModels;
+using MvvmCross.Platform;
+
 namespace MvxViewPager.Core.ViewModels
 {
-    using Cirrious.CrossCore;
-    using Cirrious.MvvmCross.ViewModels;
-    using System;
-    using System.Linq.Expressions;
-
     /// <summary>
     ///    Defines the BaseViewModel type.
     /// </summary>

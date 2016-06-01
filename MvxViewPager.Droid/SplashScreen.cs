@@ -3,12 +3,11 @@
 //    Defines the SplashScreen type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
+using Android.App;
+using MvvmCross.Droid.Views;
+
 namespace MvxViewPager.Droid
 {
-    using Android.App;
-
-    using Cirrious.MvvmCross.Droid.Views;
-
     /// <summary> 
     /// Defines the SplashScreen type.
     /// </summary>

@@ -3,12 +3,13 @@
 //    Defines the App type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
+
+using MvvmCross.Core.ViewModels;
+using MvvmCross.Platform.IoC;
+using MvxViewPager.Core.ViewModels;
+
 namespace MvxViewPager.Core
 {
-    using Cirrious.CrossCore.IoC;
-    using Cirrious.MvvmCross.ViewModels;
-    using MvxViewPager.Core.ViewModels;
-
     /// <summary>
     /// Define the App type.
     /// </summary>

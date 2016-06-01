@@ -6,7 +6,6 @@
 namespace MvxViewPager.Core.ViewModels
 {
     using System.Windows.Input;
-    using Cirrious.MvvmCross.ViewModels;
 
     /// <summary>
     /// Define the HomeViewModel type.

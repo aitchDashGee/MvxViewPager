@@ -10,8 +10,9 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
-using Cirrious.MvvmCross.Binding.Droid.BindingContext;
-using Cirrious.MvvmCross.Droid.Fragging.Fragments;
+using MvvmCross.Binding.Droid.BindingContext;
+using MvxViewPager.Core.ViewModels;
+using MvvmCross.Droid.Support.V4;
 
 namespace MvxViewPager.Droid.Views.Fragments
 {

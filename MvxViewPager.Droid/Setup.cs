@@ -6,13 +6,12 @@
 
 using System.Collections.Generic;
 using System.Reflection;
+using Android.Content;
+using MvvmCross.Core.ViewModels;
+using MvvmCross.Droid.Platform;
 
 namespace MvxViewPager.Droid
 {
-    using Android.Content;
-
-    using Cirrious.MvvmCross.Droid.Platform;
-    using Cirrious.MvvmCross.ViewModels;
 
     /// <summary>
     ///    Defines the Setup type.
@@ -36,7 +35,7 @@ namespace MvxViewPager.Droid
         {
             return new Core.App();
         }
-        protected override IList<Assembly> AndroidViewAssemblies => new List<Assembly>(base.AndroidViewAssemblies)
+        protected override IEnumerable<Assembly> AndroidViewAssemblies => new List<Assembly>(base.AndroidViewAssemblies)
         {
             typeof(Android.Support.Design.Widget.NavigationView).Assembly,
             typeof(Android.Support.Design.Widget.FloatingActionButton).Assembly,
