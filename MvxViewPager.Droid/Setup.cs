@@ -3,6 +3,10 @@
 //    Defines the Setup type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
+
+using System.Collections.Generic;
+using System.Reflection;
+
 namespace MvxViewPager.Droid
 {
     using Android.Content;
@@ -32,5 +36,13 @@ namespace MvxViewPager.Droid
         {
             return new Core.App();
         }
+        protected override IList<Assembly> AndroidViewAssemblies => new List<Assembly>(base.AndroidViewAssemblies)
+        {
+            typeof(Android.Support.Design.Widget.NavigationView).Assembly,
+            typeof(Android.Support.Design.Widget.FloatingActionButton).Assembly,
+            typeof(Android.Support.V7.Widget.Toolbar).Assembly,
+            typeof(Android.Support.V4.Widget.DrawerLayout).Assembly,
+            typeof(Android.Support.V4.View.ViewPager).Assembly,
+        };
     }
 }

@@ -5,9 +5,10 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 using System.Collections.Generic;
+using Android.Support.Design.Widget;
 using Android.Support.V4.View;
+using Android.Support.V7.App;
 using Cirrious.MvvmCross.Droid.Fragging;
-using PagerSlidingTabStrip = com.refractored.PagerSlidingTabStrip;
 using MvxViewPager.Core.ViewModels;
 using MvxViewPager.Droid.Adapters;
 using MvxViewPager.Droid.Views.Fragments;
@@ -25,7 +26,6 @@ namespace MvxViewPager.Droid.Views
     public class HomeView : MvxFragmentActivity
     {
         private ViewPager _viewPager;
-        private PagerSlidingTabStrip _pageIndicator;
         private MvxViewPagerFragmentAdapter _adapter;
 
         public new HomeViewModel ViewModel
@@ -42,6 +42,8 @@ namespace MvxViewPager.Droid.Views
         {
             base.OnCreate(bundle);
             this.SetContentView(Resource.Layout.HomeView);
+
+            ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
 
             var fragments = new List<MvxViewPagerFragmentAdapter.FragmentInfo>
               {
@@ -66,13 +68,10 @@ namespace MvxViewPager.Droid.Views
               };
 
             _viewPager = FindViewById<ViewPager>(Resource.Id.viewPager);
-            _adapter = new MvxViewPagerFragmentAdapter(this, SupportFragmentManager, fragments);
+            _adapter = new MvxViewPagerFragmentAdapter(SupportFragmentManager, fragments, ActionBar, _viewPager);
             _viewPager.Adapter = _adapter;
+            _viewPager.AddOnPageChangeListener(_adapter);
 
-            _pageIndicator = FindViewById<PagerSlidingTabStrip>(Resource.Id.viewPagerIndicator);
-
-            _pageIndicator.SetViewPager(_viewPager);
-            
         }
     }
 }
